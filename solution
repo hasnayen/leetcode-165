@@ -1,0 +1,19 @@
+class Solution:
+    def compareVersion(self, version1: str, version2: str) -> int:
+        versione1 = version1.split('.')
+        versione2 = version2.split('.')
+        versione1 = [int(i) for i in versione1]
+        versione2 = [int(i) for i in versione2]
+
+        len1 = len(versione1)
+        len2 = len(versione2)
+        max_len = max(len1, len2)
+
+        for i in range(max_len):
+            v1 = versione1[i] if i < len1 else 0  # Get element from versione1 or 0 if out of bounds
+            v2 = versione2[i] if i < len2 else 0  # Get element from versione2 or 0 if out of bounds
+            if v1 > v2:
+                return 1
+            elif v1 < v2:
+                return -1
+        return 0
